@@ -1,0 +1,43 @@
+<!-- {{data|json}} -->
+<md-card>
+    <div class="row">
+      <div class="col-md-3">
+        <h5>FlightName & Dur.</h5>
+      </div>
+      <div class="col-md-2">
+          <h5>Departure.</h5>
+      </div>
+      <div class="col-md-2">
+          <h5>Arivel.</h5>
+      </div>
+      <div class="col-md-2">
+          <h5>Price.</h5>
+      </div>
+      <div class="col-md-2">
+        <h5>Action</h5>
+    </div>
+
+    </div>
+</md-card>
+<md-card *ngFor="let flight of data"> 
+  <div class="row">
+    <div class="col-md-3 flightName">
+      {{flight.FlightName}}
+      <div class="col-md-2">
+          {{flight.Duration}}
+      </div>
+    </div>
+    <div class="col-md-2">
+            {{flight.Departure}}
+    </div>
+    <div class="col-md-2">
+            {{flight.Arivel}}
+    </div>
+    <div class="col-md-2">
+        {{flight.Price}}
+    </div>
+    <div class="col-md-2">
+      <button md-raised-button color="primary">Book</button>
+    </div>
+  </div>
+</md-card>

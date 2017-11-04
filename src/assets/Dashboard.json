@@ -1,0 +1,15 @@
+{ 
+"FlightData" : [
+	{"FlightName":"IndiGo", "Departure":"21:30", "Arivel":"23:00", "Duration":"1h:30m", "Price":"2000"},
+	{"FlightName":"AirAsia", "Departure":"06:30", "Arivel":"08:05", "Duration":"2h:35m", "Price":"2500"},
+	{"FlightName":"IndiGo", "Departure":"05:55", "Arivel":"07:45", "Duration":"1h:30m", "Price":"1500"},
+	{"FlightName":"Air Costa", "Departure":"11:30", "Arivel":"13:00", "Duration":"1h:30m", "Price":"2700"}
+	], 
+"Transactions" : [
+	{"Date":"2016-10-02", "Status":"CR", "Amount":4000},
+	{"Date":"2016-09-15", "Status":"DR", "Amount":9000},
+	{"Date":"2016-09-01", "Status":"DR", "Amount":1000},
+	{"Date":"2016-08-31", "Status":"CR", "Amount":40000},
+	{"Date":"2016-08-02", "Status":"DR", "Amount":4000}
+	]
+}

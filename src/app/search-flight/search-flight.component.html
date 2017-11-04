@@ -1,0 +1,84 @@
+<p>
+  Plan Your journey
+</p>
+<md-card>
+  <div class = "row">
+  <md-radio-group [(ngModel)]="travelinfo.travelType" (ngModelChange)="travelTypeChanged(travelinfo.travelType)">
+
+    <md-radio-button class="oneWay" value="1">One Way</md-radio-button>
+
+    <md-radio-button class="roundTrip" value="2">Round Trip</md-radio-button>
+ 
+  </md-radio-group>
+</div>
+  <div class="fromAndToContainer">
+    <md-input-container class="fromPlace">
+      <input mdInput placeholder="From" [(ngModel)]="travelinfo.fromLocation" [mdAutocomplete]="auto" [formControl]="fromPlace"
+        required>
+    </md-input-container>
+
+    <md-autocomplete #auto="mdAutocomplete">
+      <md-option *ngFor="let state of filteredStates | async" [value]="state">
+        {{ state }}
+      </md-option>
+    </md-autocomplete>
+
+    <md-input-container class="toPlace">
+      <input mdInput placeholder="To" [mdAutocomplete]="auto" [(ngModel)]="travelinfo.toLocation" [formControl]="toPlace" required>
+    </md-input-container>
+
+    <md-autocomplete #auto="mdAutocomplete">
+      <md-option *ngFor="let state of filteredStates | async" [value]="state">
+        {{ state }}
+      </md-option>
+    </md-autocomplete>
+  </div>
+  <div class="fromAndToContainer">
+    <md-input-container >
+      <input mdInput [mdDatepicker]="fromPicker" [min]="startDate" [(ngModel)]="travelinfo.fromDate" placeholder="From date" id="tripStartDate"
+        required>
+      <button mdSuffix [mdDatepickerToggle]="fromPicker"></button>
+    </md-input-container>
+    <md-datepicker #fromPicker (selectedChanged)="setMinReturnDate($event)"></md-datepicker>
+
+    <md-input-container  *ngIf="isRoundTrip">
+      <input mdInput [mdDatepicker]="toPicker" [min]="minStartDate" placeholder="To date" [(ngModel)]="travelinfo.toDate" required>
+      <button mdSuffix [mdDatepickerToggle]="toPicker"></button>
+    </md-input-container>
+    <md-datepicker #toPicker ></md-datepicker>
+  </div>
+  <div class="fromAndToContainer">
+    <md-select placeholder="Adult" [(ngModel)]="travelinfo.adultPassengersCount">
+      <md-option *ngFor="let adult of adults" [value]="adult.value">
+        {{ adult.viewValue }}
+      </md-option>
+    </md-select>
+
+    <md-select placeholder="Children (2-12 years)" [(ngModel)]="travelinfo.ChildrenPassengersCount">
+      <md-option *ngFor="let children of childrens" [value]="children.value">
+        {{ children.viewValue }}
+      </md-option>
+    </md-select>
+    <!-- 
+  <md-select placeholder="Infants (Below 2 yrs)" [(ngModel)]="travelinfo.infantsPassengersCount" >
+  <md-option *ngFor="let infant of infants" [value]="infants.value">
+    {{ infant.viewValue }}
+  </md-option>
+</md-select> -->
+
+    <md-select placeholder="Infants" [(ngModel)]="travelinfo.infantsPassengersCount">
+      <md-option *ngFor="let infant of infants" [value]="infant.value">
+        {{ infant.viewValue }}
+      </md-option>
+    </md-select>
+
+
+  </div>
+  <div class="fromAndToContainer">
+    <button md-raised-button class="searchbutton" (click)="getSearchData(travelinfo)">Search</button>
+  </div>
+</md-card>
+
+
+<!-- {{travelinfo|json}} -->
+

@@ -1,0 +1,15 @@
+.oneWay {
+    margin-right: 400px;
+    margin-left: 100px;
+}
+.fromAndToContainer {
+    margin-top: 50px;
+}
+.fromPlace, .toPlace {
+    margin-left: 100px;
+}
+.searchbutton{
+    float: right;
+    background-color: #F86810;
+    color: #fff;
+}
